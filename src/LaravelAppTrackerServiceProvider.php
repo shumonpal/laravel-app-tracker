@@ -22,12 +22,16 @@ class LaravelAppTrackerServiceProvider extends ServiceProvider
         );
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'shumonpal');
 
-        // $this->publishes([
-        //     __DIR__.'/../config/tracker.php' => config_path('project-tracker.php'),
-        // ]);
+        $this->publishes([
+            __DIR__.'/../config/tracker.php' => config_path('project-tracker.php'),
+        ]);
         
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/shumonpal'),
+        ]);
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/shumonpal'),
         ]);
 
     }

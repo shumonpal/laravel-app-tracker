@@ -312,7 +312,20 @@ table {
   caption-side: bottom;
   border-collapse: collapse;
 }
-
+table .thead-dark{
+  background-color: var(--bs-gray-900);
+  color: white;
+}
+table .bg-light-success{
+  background-color: #e4fff3;
+  color: #168551;
+}
+tbody td {
+  color: var(--bs-gray);
+}
+.licence-paginate nav{
+  float: right;
+}
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -3145,9 +3158,9 @@ textarea.form-control-lg {
 }
 
 .btn-sm, .btn-group-sm > .btn {
-  --bs-btn-padding-y: 0.25rem;
-  --bs-btn-padding-x: 0.5rem;
-  --bs-btn-font-size: 0.875rem;
+  --bs-btn-padding-y: 0.18rem;
+  --bs-btn-padding-x: 0.3rem;
+  --bs-btn-font-size: 0.57rem;
   --bs-btn-border-radius: 0.25rem;
 }
 
@@ -4513,8 +4526,8 @@ textarea.form-control-lg {
   --bs-pagination-focus-bg: #e9ecef;
   --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #0d6efd;
-  --bs-pagination-active-border-color: #0d6efd;
+  --bs-pagination-active-bg: var(--bs-dark);
+  --bs-pagination-active-border-color: var(--bs-dark);
   --bs-pagination-disabled-color: #6c757d;
   --bs-pagination-disabled-bg: #fff;
   --bs-pagination-disabled-border-color: #dee2e6;
@@ -10823,4 +10836,54 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.popover {
+  display: inline-block;
+  position: relative;
+}
+
+.popover__menu {
+  border-radius: 4px;
+  border-top: 2px solid #49c5b6;
+  background: #fff;
+  list-style-type: none;
+  margin: 8px 0;
+  min-width: 100%;
+  padding: 0.5rem 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  box-shadow: 0 2px 3px 0 rgba(63, 63, 68, 0.2);
+  transition-property: transform, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  transform: scale(0.9);
+  transform-origin: top left;
+  display: block;
+  opacity: 0;
+}
+.popover__menu:after {
+  bottom: 100%;
+  right: 0.5rem;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: var(--bs-info);
+  border-width: 7px;
+}
+
+.popover__menu-item {
+  white-space: nowrap;
+}
+
+
+.popover--active .popover__menu {
+  transform: scale(1);
+  display: block;
+  opacity: 1;
 }
