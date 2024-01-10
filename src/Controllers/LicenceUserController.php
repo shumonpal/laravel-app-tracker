@@ -2,12 +2,12 @@
 
 namespace Shumonpal\LaravelAppTracker\Controllers;
 
-use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Response;
 use Shumonpal\LaravelAppTracker\Models\LicenceUser;
 
-class LicenceUserController extends AppBaseController
+class LicenceUserController extends Controller
 {
 
     /**

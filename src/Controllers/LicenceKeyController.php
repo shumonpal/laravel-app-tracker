@@ -2,14 +2,12 @@
 
 namespace Shumonpal\LaravelAppTracker\Controllers;
 
-use Flash;
-use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 use Response;
 use Shumonpal\LaravelAppTracker\Models\LicenceKey;
 
-class LicenceKeyController extends AppBaseController
+class LicenceKeyController extends Controller
 {
 
     /**

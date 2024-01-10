@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Shumonpal\LaravelAppTracker\Controllers\API\LicenceKeyAPIController;
+use Shumonpal\LaravelAppTracker\Controllers\API\LicenceUserAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use Shumonpal\LaravelAppTracker\Controllers\API\LicenceKeyAPIController;
 
 Route::prefix('api/app-tracker')->middleware('api')->group(function () {
     Route::post('licence-key-verify', [LicenceKeyAPIController::class, 'verify']);
-    // Route::resource('licence-users', LicenceUserAPIController::class);
+    Route::resource('licence-users', LicenceUserAPIController::class);
 
 });
 

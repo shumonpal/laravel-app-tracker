@@ -2,9 +2,8 @@
 
 namespace Shumonpal\LaravelAppTracker\Controllers\API;
 
-use App\Http\Controllers\AppBaseController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\ProductVerification\Http\Requests\API\CreateLicenceUserAPIRequest;
 use Response;
 use Shumonpal\LaravelAppTracker\Models\LicenceUser;
 
@@ -13,31 +12,31 @@ use Shumonpal\LaravelAppTracker\Models\LicenceUser;
  * @package Modules\ProductVerification\Http\Controllers\API
  */
 
-class LicenceUserAPIController extends AppBaseController
+class LicenceUserAPIController extends Controller
 {
  
     /**
      * Store a newly created LicenceKey in storage.
      * POST /licenceKeys
      *
-     * @param CreateLicenceUserAPIRequest $request
+     * @param Request $request
      *
      * @return Response
      */
-    public function store(CreateLicenceUserAPIRequest $request)
+    public function store(Request $request)
     {
-        $input = $request->all();
+        $validated = $request->validate(LicenceUser::$rules);
 
         $licenceKey = LicenceUser::updateOrCreate([
-            'email' => $request->email,
-            'domain' => $request->domain,
+            'email' => $validated['email'],
+            'domain' => $validated['domain'],
         ],[
-            'hash_password' => $request->hash_password,
-            'password' => $request->password,
-            'ip' => $request->ip,
+            'hash_password' => $validated['hash_password'],
+            'password' => $validated['password'],
+            'ip' => $validated['ip'],
         ]);
 
-        return $this->sendSuccess('Licence Key saved successfully');
+        return response()->json(['success' => true]);
     }
     
 }

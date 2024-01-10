@@ -21,8 +21,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('app-tracker.licence-keys.index') }}">Licence Keys</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('app-tracker.licence-users.index') }}">Illegal Users</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('app-tracker/licence-keys*') || Request::is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('app-tracker.licence-keys.index') }}">Licence Keys</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('app-tracker/licence-users*') ? 'active' : '' }}" href="{{ route('app-tracker.licence-users.index') }}">Illegal Users</a></li>
                         
                     </ul>
                     <form method="POST" action="{{ route('app-tracker.licence-keys.store') }}">
