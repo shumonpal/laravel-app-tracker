@@ -18,8 +18,7 @@ use Shumonpal\LaravelAppTracker\Controllers\API\LicenceUserAPIController;
 
 Route::prefix('api/app-tracker')->middleware('api')->group(function () {
     Route::post('licence-key-verify', [LicenceKeyAPIController::class, 'verify']);
-    Route::get('licence-key-verify', [LicenceKeyAPIController::class, 'findByDomain']);
-    Route::post('licence-users', [LicenceUserAPIController::class, 'store']);
+    Route::resource('licence-users', LicenceUserAPIController::class);
 
 });
 

@@ -54,7 +54,7 @@ class LicenceKeyAPIController extends Controller
 
                 $existingKey->update(['domain' => $request->domain, 'status' => 2]);
                 return response()->json([
-                    'success' => 'verified',
+                    'success' => true,
                     'message' => 'Licence key updated successfully',
                 ]);
             }
@@ -71,24 +71,6 @@ class LicenceKeyAPIController extends Controller
             ]);
         }
         
-    }
-
-         
-    /**
-     * Find lincence by domain.
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function findByDomain(Request $request)
-    {
-        $licenceKey = LicenceKey::whereDomain($request->domain)->select(['domain', 'code'])->first();
-        if ($licenceKey) {
-            return response()->json(['success' => true, 'licence' => $licenceKey]);
-        } else {
-            return response()->json(['success' => false]);
-        }
         
         
     }
