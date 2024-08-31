@@ -41,8 +41,7 @@
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $licence->code }}</td>
                       <td>{{ $licence->domain }}</td>
-                      <td>
-                        @if (!$licence->domain)                            
+                      <td>                         
                         <form action="{{ route('app-tracker.licence-keys.destroy', $licence->id) }}" class="d-flex" method="POST"
                             onsubmit="return confirm('Are you sure to delete key: {{ $licence->code }} ?');">
                           @csrf
@@ -51,7 +50,6 @@
                                 Delete
                             </button>
                         </form>
-                        @endif
                       </td>
                     </tr>
                     @endforeach
