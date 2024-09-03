@@ -43,9 +43,7 @@ class LaravelAppTrackerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // $this->booting(function () {            
-        //     Event::listen(Login::class , NotifyIfNotLicencedListener::class);
-        // });
+        // 
     }
 
 

@@ -85,7 +85,7 @@ class LicenceKeyAPIController extends Controller
     {
         $licenceKey = LicenceKey::whereDomain($request->domain)->select(['domain', 'code'])->first();
         if ($licenceKey) {
-            return response()->json(['success' => true, 'licence' => $licenceKey]);
+            return response()->json(['success' => 'verified', 'licence' => $licenceKey]);
         } else {
             return response()->json(['success' => false]);
         }
